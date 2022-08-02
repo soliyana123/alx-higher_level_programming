@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-Appends a string at the end of a text file (UTF8)
-"""
+""" Program that open, read and write a file appending """
 
 
 def append_write(filename="", text=""):
-    """
-    Appends a string at the end of a text file (UTF8)
-    """
-    with open(filename, mode="a", encoding="utf-8") as m_file:
-        char = m_file.write(text)
-        return char
+    """ function that writes a string to a text file (UTF8) and
+    returns the number of characters written """
+    with open(filename, 'a', encoding='utf-8') as f:
+        return (f.write(text))
