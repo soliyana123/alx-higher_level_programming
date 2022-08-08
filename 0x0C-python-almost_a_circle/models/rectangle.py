@@ -2,6 +2,7 @@
 """
 class rectangle
 """
+from models.base import Base
 
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -98,7 +99,24 @@ class Rectangle(Base):
                return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
                                                        self.__y, self.__width,
                                                        self.__height)
+            def update(self, *args, **kwargs):
+                 """
+                 update public method
+                 """
+                 if args and len(args) != 0:
+                     i = 0
+                     att_list = ["id", "width", "height", "x", "y"]
+                     for i in range(len(args)):
+                         setattr(self, att_list[i], args[i])
+                 else:
+                     for k, v in kwargs.items():
+                        if hasattr(self, k):
+                            setattr(self, k, v)
 
 
 
-
+            def to_dictionary(self):
+                """
+                to dictionary public method
+                """
+                return {"id": self.id, "width": self.width, "height": self.height, "x": self.x, "y": self.y, }
