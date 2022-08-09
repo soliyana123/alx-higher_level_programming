@@ -12,10 +12,11 @@ class Rectangle(Base):
         """
         var for the rec
         """
-        super().__init__(id)
+    
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
 
