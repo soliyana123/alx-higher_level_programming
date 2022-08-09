@@ -41,3 +41,12 @@ class Base:
         jstr = cls.to_json_string(my_list)
         with open(fname, 'w') as f:
             f.write(jstr)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        return a string of json
+        """
+        if json_string is None or json_string is "":
+            return []
+        return json.loads(json_string)
