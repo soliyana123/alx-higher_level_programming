@@ -76,12 +76,20 @@ class Rectangle(Base):
         """
         return self.__width * self.__height
 
-    def display(self):
+     def display(self):
+         """
+         Displays the rectangle with a # sign
+         """
+         print("\n" * self.__y, end="")
+         print((" " * self.__x + "#" * self.__width + "\n") *
+               self.__height, end="")
+     def __str__(self):
         """
-        Displays the rectangle with a # sign
+        Str Method
         """
-        print("\n" * self.__y, end="")
-        print((" " * self.__x + "#" * self.__width + "\n") *
-              self.__height, end="")   
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
+                                                       self.__y, self.__width,
+                                                       self.__height)
+
 
 
