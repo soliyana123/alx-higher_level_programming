@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ First Rectangle that inherits from Base """
 from . base import Base
-import json
+
 
 
 class Rectangle(Base):
@@ -71,18 +71,17 @@ class Rectangle(Base):
         self.__y = value
 
      def area(self):
-        """ 
-        returns the area value of the Rectangle instance 
-
         """
-        return (self.__height * self.__width)
+        Return area of the a rectangle
+        """
+        return self.__width * self.__height
 
-
-     def display(self):
-         """
+    def display(self):
+        """
         Displays the rectangle with a # sign
         """
         print("\n" * self.__y, end="")
         print((" " * self.__x + "#" * self.__width + "\n") *
-              self.__height, end="")
+              self.__height, end="")   
+
 
