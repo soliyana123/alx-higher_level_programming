@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ First Rectangle that inherits from Base """
 from . base import Base
-
+import json
 
 
 class Rectangle(Base):
@@ -70,6 +70,9 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-      def area(self):
-        """ returns the area value of the Rectangle instance """
-        return (self.__height * self.__width)
+     def area(self):
+        """ 
+        returns the area value of the Rectangle instance 
+
+        """
+        return self.__height * self.__width
