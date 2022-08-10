@@ -45,3 +45,12 @@ class Base:
         with open(new_file, mode="w", encoding="utf-8") as f:
             f.write(cls.to_json_string(list_wri))
 
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        return a string of json
+        """
+        if json_string is None or json_string is "":
+            return []
+        return json.loads(json_string)
+
