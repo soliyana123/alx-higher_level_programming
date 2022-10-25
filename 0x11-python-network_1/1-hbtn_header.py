@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-"""Fetches header"""
+""" Program that fetches an URL with a header value"""
 import urllib.request
-import sys
+from sys import argv
 
-
-def fetcher():
-    """fetcher"""
-    with urllib.request.urlopen(sys.argv[1]) as response:
-        header = response.info()
-        print(header["X-Request-Id"])
 
 if __name__ == "__main__":
-    fetcher()
+    url = argv[1]
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
+        info_page = response.info()
+        print(info_page.get('X-Request-Id'))
