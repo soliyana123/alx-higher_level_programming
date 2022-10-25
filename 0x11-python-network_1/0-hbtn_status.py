@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status"""
+""" Program that fetches an URL """
 import urllib.request
 
 
-def fetcher():
-    """fetcher"""
-    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
-        html = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(html)))
-        print("\t- content: {}".format(html))
-        print("\t- utf8 content: {}".format(html.decode("utf-8")))
-
 if __name__ == "__main__":
-    fetcher()
+    req = urllib.request.Request('https://intranet.hbtn.io/status')
+    with urllib.request.urlopen(req) as response:
+        body_page = response.read()
+        body_decoded = body_page.decode('utf-8')
+
+        print("Body response:")
+        print("\t- type: {}".format(type(body_page)))
+        print("\t- content: {}".format(body_page))
+        print("\t- utf8 content: {}".format(body_decoded))
