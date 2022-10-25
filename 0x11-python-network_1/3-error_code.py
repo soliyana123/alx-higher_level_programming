@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-"""Send request"""
-import urllib.request
-import urllib.error
-import sys
+""" Managing Errors """
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError
+from sys import argv
 
-
-def sender():
-    """sender"""
-    try:
-        with urllib.request.urlopen(sys.argv[1]) as response:
-            html = response.read()
-            print(html.decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        print("Error code: {}".format(e.code))
 
 if __name__ == "__main__":
-    sender()
+    url = argv[1]
+    req = Request(url)
+    try:
+        with urlopen(req) as response:
+            body_page = response.read()
+            print(body_page.decode('utf-8'))
+    except HTTPError as e:
+        print("Error code: {}".format(e.code))
